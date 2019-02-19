@@ -10,7 +10,7 @@ from flask import jsonify
 import json
 
 app = Flask(__name__)
-@app.route('/api/hello', methods=['GET'])
+
 
 
 # 请您来修正Hello, word的拼写错误吧！
@@ -19,7 +19,7 @@ app = Flask(__name__)
 
 
 
-
+@app.route('/api/hello', methods=['GET'])
 def start():
     return json.dumps({
         'code': '0'
