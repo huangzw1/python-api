@@ -9,4 +9,4 @@ WORKDIR /usr/local/ph
 # 安装requirements
 RUN pip install --no-cache-dir -r requirements.txt
 CMD ["python", "./main.py"]
-EXPOSE 5000
+EXPOSE 80
