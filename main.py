@@ -25,5 +25,15 @@ def start():
         'code': '0'
     })
 
+@app.route('/api/test1', methods=['POST'])
+def apitest1():
+    username = request.form.get('username')
+    password = request.form.get('password')
+    print(username)
+    print(password)
+    return json.dumps({
+        'username': '%s' % (username)
+    })
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0')
