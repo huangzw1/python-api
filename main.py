@@ -27,8 +27,9 @@ def start():
 
 @app.route('/api/test1', methods=['POST'])
 def apitest1():
-    username = request.form.get('username')
-    password = request.form.get('password')
+    jsonself = request.get_json()
+    username = jsonself['username']
+    password = jsonself['password']
     print(username)
     print(password)
     return json.dumps({
