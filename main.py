@@ -50,9 +50,10 @@ def result():
 @app.route('/dashboard', methods=['POST', 'GET'])
 def dashboard():
     if request.method == 'GET':
-        print(request.args.get('name', ''))
+        name = request.args.get('name', '')
+        print(name)
         print(request.args.get('developer', ''))
-    return 'ok'
+    return name
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
