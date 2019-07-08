@@ -8,6 +8,7 @@ from flask import request
 from flask import redirect
 from flask import jsonify
 import json
+from flask import render_template
 
 app = Flask(__name__)
 
@@ -19,22 +20,32 @@ app = Flask(__name__)
 
 
 
-@app.route('/api/hello', methods=['GET'])
-def start():
-    return json.dumps({
-        'code': '0'
-    })
+# @app.route('/api/hello', methods=['GET'])
+# def start():
+#     return json.dumps({
+#         'code': '0'
+#     })
+#
+# @app.route('/api/test1', methods=['POST'])
+# def apitest1():
+#     jsonself = request.get_json()
+#     username = jsonself['username']
+#     password = jsonself['password']
+#     print(username)
+#     print(password)
+#     return json.dumps({
+#         'username': '%s' % (username)
+#     })
 
-@app.route('/api/test1', methods=['POST'])
-def apitest1():
-    jsonself = request.get_json()
-    username = jsonself['username']
-    password = jsonself['password']
-    print(username)
-    print(password)
-    return json.dumps({
-        'username': '%s' % (username)
-    })
+@app.route('/')
+def student():
+    return render_template('student.html')
+
+@app.route('/result',methods = ['POST', 'GET'])
+def result():
+    if request.method == 'POST':
+        result = request.form
+        return render_template("result.html",result = result)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(debug=True)
