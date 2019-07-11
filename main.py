@@ -20,40 +20,40 @@ app = Flask(__name__)
 
 
 
-# @app.route('/api/hello', methods=['GET'])
-# def start():
-#     return json.dumps({
-#         'code': '0'
-#     })
-#
-# @app.route('/api/test1', methods=['POST'])
-# def apitest1():
-#     jsonself = request.get_json()
-#     username = jsonself['username']
-#     password = jsonself['password']
-#     print(username)
-#     print(password)
-#     return json.dumps({
-#         'username': '%s' % (username)
-#     })
+@app.route('/api/hello', methods=['GET'])
+def start():
+    return json.dumps({
+        'code': '0'
+    })
 
-@app.route('/')
-def student():
-    return render_template('student.html')
+@app.route('/api/test1', methods=['POST'])
+def apitest1():
+    jsonself = request.get_json()
+    username = jsonself['username']
+    password = jsonself['password']
+    print(username)
+    print(password)
+    return json.dumps({
+        'username': '%s' % (username)
+    })
 
-@app.route('/result',methods = ['POST', 'GET'])
-def result():
-    if request.method == 'POST':
-        result = request.form
-        return render_template("result.html",result = result)
+# @app.route('/')
+# def student():
+#     return render_template('student.html')
 
-@app.route('/dashboard', methods=['POST', 'GET'])
-def dashboard():
-    if request.method == 'GET':
-        name = request.args.get('name', '')
-        print(name)
-        print(request.args.get('developer', ''))
-    return name
+# @app.route('/result',methods = ['POST', 'GET'])
+# def result():
+#     if request.method == 'POST':
+#         result = request.form
+#         return render_template("result.html",result = result)
+
+# @app.route('/dashboard', methods=['POST', 'GET'])
+# def dashboard():
+#     if request.method == 'GET':
+#         name = request.args.get('name', '')
+#         print(name)
+#         print(request.args.get('developer', ''))
+#     return name
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
