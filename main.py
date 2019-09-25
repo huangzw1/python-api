@@ -31,6 +31,13 @@ def apitest1():
     jsonself = request.get_json()
     username = jsonself['username']
     password = jsonself['password']
+    log = jsonself['log']
+    lala = jsonself['lala']
+    xixi = jsonself['xixi']
+    hehe = jsonself['hehe']
+    haha = jsonself['haha']
+    kaka = jsonself['kaka']
+    htoken = jsonself['htoken']
     print(username)
     print(password)
     return json.dumps({
